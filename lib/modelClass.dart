@@ -4,7 +4,7 @@ class ProductModel {
   String image;
   String prdctName;
   String description;
-  num amount;
+  double amount;
   String id;
   bool delete;
   DocumentReference reference;
@@ -27,7 +27,7 @@ class ProductModel {
     String? image,
     String? prdctName,
     String? description,                           //used for update data
-    num? amount,
+    double? amount,
     String? id,
     bool? delete,
     DocumentReference? reference,
@@ -50,7 +50,7 @@ class ProductModel {
     image: json["image"],
     prdctName: json["prdctName"],
     description: json["description"],
-    amount: json["amount"],                            //to invoke data from firebase
+    amount: double.tryParse(json["amount"].toString()) ?? 0,                            //to invoke data from firebase
     id: json["id"],
     delete: json["delete"],
     reference:json["reference"],

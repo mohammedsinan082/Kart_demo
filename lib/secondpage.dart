@@ -19,7 +19,7 @@ class secondPage extends StatefulWidget {
 class _secondPageState extends State<secondPage> {
 
 
-  String? dropdownvalue;
+  var dropdownvalue;
   List <CategoryModel> category=[];
 
 
@@ -328,7 +328,7 @@ class _secondPageState extends State<secondPage> {
               SizedBox(height: w*0.02,),
               Expanded(
                 child: StreamBuilder<List<ProductModel>>(
-                  stream: dropdownvalue==null ? getProduct() : getFullProduct(),
+                  stream: dropdownvalue!=null ? getProduct() : getFullProduct(),
                     builder: (context, snapshot) {
                   if(!snapshot.hasData)
                   {
